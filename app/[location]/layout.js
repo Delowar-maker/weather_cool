@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -8,20 +9,35 @@ export const metadata = {
     description: "One Place Dashboard for Eco Information",
 };
 
-export default function RootLayout({ children,
+export default function RootLayout({
+    children,
     weather,
     aqi,
     wind,
-    temperature, }) {
+    temperature,
+}) {
     return (
         <div className="wrapper">
-            {children}
-            {weather}
-            {aqi}
-            {wind}
-            {temperature}
+            <div className="overlay"></div>
+
+            <Image
+                src="/background.png"
+                alt="" // or provide meaningful text, e.g. "Background image"
+                className="bg-img"
+                width={700}
+                height={1200}
+            />
+            <main className="!z-50 w-full">
+                <div className="container">
+                    <div className="grid grid-cols-12 gap-y-8 py-16 lg:gap-8 2xl:gap-20 2xl:py-20">
+                        {children}
+                        {weather}
+                        {aqi}
+                        {wind}
+                        {temperature}
+                    </div>
+                </div>
+            </main>
         </div>
-
-
     );
 }
