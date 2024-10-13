@@ -2,6 +2,7 @@ import NoLocationInfo from "@/components/NoLocationInfo";
 import WindComponent from "@/components/WindComponent";
 import { getResolvedLatLong } from "@/lib/location-info";
 
+
 const WindPage = async ({
     params: { location },
     searchParams: { latitude, longitude },
